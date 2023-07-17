@@ -9,7 +9,9 @@ export default function Router () {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/form" element="#" />
+        <Route path="/store" element="Wird noch ausgebaut du Hund" />
+        <Route path="/kontakt" element="Wird noch ausgebaut du Hund" />
+        <Route path="/b2b" element="Wird noch ausgebaut du Hund" /> 
       </Routes>
     </BrowserRouter>
   );

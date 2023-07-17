@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import Router from "./Router";
 
-import "./index.scss";
-import "./normalize.css";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
+import store from "./store";
+import { Provider } from "react-redux";
+
+import "./styles/index.scss";
+import "./styles/normalize.css";
+
+import config from "./config";
 const firebaseConfig = {
-  apiKey: "AIzaSyDYaRJ-Wu238h9HtgVfpK-YrBPy9MjhofY",
+  apiKey: config.apiKey,
   authDomain: "projectx-87e81.firebaseapp.com",
   projectId: "projectx-87e81",
   storageBucket: "projectx-87e81.appspot.com",
@@ -24,8 +29,11 @@ export const analytics = getAnalytics(app);
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <Router />
+    <Provider store={store}>
+      <Router />
+    </Provider>
   </React.StrictMode>
 );
