@@ -1,5 +1,6 @@
 .navbar {
   position: fixed;
+  z-index: 1;
 
   left: 0px;
   top: 0px;
@@ -17,7 +18,7 @@
   border-width: 1px;
   border-color: var(--contrary-color);
 
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
 
   background: none;
 
