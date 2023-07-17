@@ -1,25 +1,26 @@
 {
-    "env": {
-      "browser": true,
-      "commonjs": true,
-      "es2021": true
-    },
-    "extends": [
-      "standard-with-typescript",
-      "plugin:react/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2021,
-      "sourceType": "module",
-      "project": "./tsconfig.json"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "semi": ["error", "never"]
-    }
-  }
-  
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "eslint-config-standard-with-typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "semi": ["error", "never"]
+  },
+  "ignorePatterns": ["*.js"]
+}
