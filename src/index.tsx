@@ -1,8 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import Router from "./Router";
+
+import "./index.scss";
+import "./normalize.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDYaRJ-Wu238h9HtgVfpK-YrBPy9MjhofY",
@@ -18,10 +22,10 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-
+    <Router />
   </React.StrictMode>
 );
