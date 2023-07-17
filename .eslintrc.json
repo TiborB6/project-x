@@ -5,26 +5,21 @@
       "es2021": true
     },
     "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
+      "standard-with-typescript",
       "plugin:react/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2021,
-      "sourceType": "module"
+      "sourceType": "module",
+      "project": "./tsconfig.json"
     },
     "plugins": [
-      "@typescript-eslint",
-      "react"
+      "react",
+      "@typescript-eslint"
     ],
     "rules": {
-      "indent": ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      "quotes": ["error", "double"],
-      "semi": ["error", "always"],
-      "react/prop-types": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off"
+      "semi": ["error", "never"]
     }
   }
   
