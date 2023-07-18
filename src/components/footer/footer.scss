@@ -10,6 +10,10 @@
   img {
     height: 40px;
     width: 160px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   svg {
@@ -22,7 +26,7 @@
 
     &:hover {
       fill: var(--contrary-color);
-      cursor: pointer
+      cursor: pointer;
     }
   }
 
