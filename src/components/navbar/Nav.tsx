@@ -43,7 +43,7 @@ export default function Nav (): any {
             <div className="underline-nav"></div>
           </div>
           <div className="nav-wrapper">
-            <NavLink to="/kontakt" >Kontakt</NavLink>
+            <NavLink to="/ontakt" >Contakt</NavLink>
             <div className="underline-nav"></div>
           </div>
           <div className="nav-wrapper">

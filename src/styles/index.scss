@@ -4,6 +4,7 @@
   --highlight-color: #3b82f6;
   --shadow-color: rgb(0 0 0 / 0.1);
   background-color: var(--main-color);
+  overflow: hidden;
 }
 
 #root.dark {
@@ -12,11 +13,14 @@
   --highlight-color: #3b82f6;
   --shadow-color: rgb(250 250 250 / 0.1);
   background-color: var(--main-color);
+  overflow: hidden;
 }
+
 
 body {
   width: 100vw;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 18px;
   color: var(--contrary-color);
+  margin: 0px;
 }

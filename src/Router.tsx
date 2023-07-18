@@ -9,8 +9,9 @@ export default function Router (): JSX.Element {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/store" element="Wird noch ausgebaut du Hund" />
-        <Route path="/kontakt" element="Wird noch ausgebaut du Hund" />
+        <Route path="/contakt" element="Wird noch ausgebaut du Hund" />
         <Route path="/b2b" element="Wird noch ausgebaut du Hund" />
+        <Route path="/impressum" element="Wird noch ausgebaut du Hund" />
       </Routes>
     </BrowserRouter>
   )
