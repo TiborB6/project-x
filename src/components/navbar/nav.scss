@@ -47,7 +47,7 @@
       gap: calc(20px * 1.618);
 
       font-size: 20px;
-      color: var(--contrary-color);
+      color: var(--accent-color);
 
       .nav-wrapper {
         padding-top: calc(20px / 1.618);
@@ -77,6 +77,7 @@
 
         .active {
           font-weight: 700;
+          color: var(--contrary-color);
         }
 
         .active ~ .underline-nav {

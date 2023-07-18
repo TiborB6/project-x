@@ -12,7 +12,7 @@
 
     border-bottom-style: solid;
     border-width: 1px;
-    border-color: var(--contrary-color);
+    border-color: var(--accent-color);
 
     .image-transition {
       opacity: 0;
@@ -61,7 +61,7 @@
       }
 
       svg {
-        fill: var(--contrary-color);
+        fill: var(--accent-color);
         width: 200px;
         height: 200px;
       }
@@ -143,6 +143,7 @@
       margin: 0;
       padding: 0;
       text-align: center;
+      color: var(--accent-color);
     }
 
     svg {
@@ -190,22 +191,25 @@
     
     button {
       font-size: 20px;
-      color: var(--contrary-color);
+      color: var(--accent-color);
       background: none;
       padding: 15px;
 
       border-style: solid;
-      border-color: var(--contrary-color);
+      border-color: var(--accent-color);
       border-width: 1px;
       border-radius: 4px;
 
       flex: 1;
 
-      transition: color 0.3s ease-in-out;
+      transition: color 0.3s ease;
+      transition: border-color 0.3s ease;
+
 
       &:hover{
         cursor: pointer;
-        color: var(--highlight-color);
+        color: var(--contrary-color);
+        border-color: var(--contrary-color);
       }
 
       &.displayed {
