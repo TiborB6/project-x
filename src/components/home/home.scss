@@ -17,7 +17,7 @@
     .image-transition {
       opacity: 0;
       transform: translateX(-100%);
-      transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
+      transition: opacity 0.2s ease-in-out, transform 0.8s ease-in-out;
     }
     
     .image-transition.show {
@@ -87,7 +87,7 @@
         border-width: 1px;
         border-color: var(--contrary-color);
 
-        transition: 0.6s ease-in-out;
+        transition: 0.5s ease-in-out;
       }
 
       .activePic {
@@ -120,18 +120,45 @@
   padding-left: calc(400px * 0.382);
   height: 400px;
 
+  overflow: hidden;
+
+  .hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-300%);
+    transition: opacity 2s, filter 2s, transform 2s;
+    transition-delay: 0.5s;
+  }
+
+  .show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0px);
+  }
+
+  .description:nth-child(1) {
+    transition-delay: 0s;
+  }
+
+  .description:nth-child(2) {
+    transition-delay: 150ms;
+  }
+
+  .description:nth-child(3) {
+    transition-delay: 300ms;
+  }
+
+
   .description {
     flex: 1;
 
-    height: 100%;
-    width: 400px;
+    height: 100;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
-
 
     h1 {
       color: var(--highlight-color);
@@ -176,10 +203,12 @@
     justify-content: space-between;
     align-items: center;
 
+    padding: 15px 0px;
+
     h1{
       color: var(--contrary-color);
       font-size: 50px;
-      margin-left: 100px;
+      margin: 0px 0px 0px 100px;
     }
 
     button {
@@ -223,6 +252,7 @@
       transition: color 0.3s ease;
       transition: border-color 0.3s ease;
 
+      box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
 
       &:hover{
         cursor: pointer;
@@ -252,25 +282,30 @@
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 45px;
-    padding: 45px;
+    gap: 60px;
+    padding: 60px;
 
     .product {
       border-style: solid;
       border-width: 1px;
-      border-color: var(--contrary-color);
+      border-color: var(--accent-color);
       border-radius: 5px;
 
-      padding: 15px;
+      padding: 30px;
 
       display: flex;
       flex-direction: column;
       
-      transition: transform 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 
       &:hover{
         transform: scale(1.01);
         cursor: pointer;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color: var(--contrary-color);
+        border-radius: 5px;
       }
 
       img {
@@ -278,6 +313,7 @@
         height: auto;
 
         border-radius: 5px;
+
       }
     }
   }

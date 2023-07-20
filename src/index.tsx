@@ -13,7 +13,7 @@ import { getAnalytics } from 'firebase/analytics'
 import store from './store'
 import { Provider } from 'react-redux'
 
-// Import custom stylesheets
+// Import custom styling
 import './styles/index.scss'
 import './styles/normalize.css'
 
