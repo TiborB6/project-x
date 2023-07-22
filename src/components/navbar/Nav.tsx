@@ -17,7 +17,6 @@ export default function Nav (): JSX.Element {
 
   // Get the current theme from the Redux store using useSelector hook
   const theme = useSelector((state: { theme: string }) => state.theme)
-  console.log(theme)
   const device = useSelector((state: { device: string }) => state.device)
 
   // Use useEffect to update the class of root element based on the theme

@@ -35,6 +35,12 @@
     }
   }
 
+  @media (max-width: 720px) {
+    .left {
+      padding-left: 0px!important;
+    }
+  }
+
   .right {
     display: flex;
     align-items: center;
@@ -142,6 +148,7 @@
 
       .active {
         font-weight: 700;
+        border-width: 3px;
       }
 
       a {
@@ -164,3 +171,4 @@
     }
   }
 }
+

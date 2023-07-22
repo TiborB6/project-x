@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { imagesBlack, imagesWhite } from '../../img/IMG_IMPORT_Module'
+import { imagesBlack, imagesWhite, imagesBlackSmall, imagesWhiteSmall } from '../../img/IMG_IMPORT_Module'
 import { useSelector } from 'react-redux'
 import TransitionImage from './img-transition/TransitionImage'
 
 export default function ImgCarussel (): JSX.Element {
   // Get the current theme from the Redux store using useSelector hook
   const theme = useSelector((state: { theme: string }) => state.theme)
+  const device = useSelector((state: { device: string }) => state.device)
 
   // State to keep track of the index of the current image
   const [i, setI] = useState(0)
@@ -56,29 +57,56 @@ export default function ImgCarussel (): JSX.Element {
     }, 5000)
   }, [i])
 
+  const [startX, setStartX] = useState(0)
+
+  // Function to handle touch start event
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>): void => {
+    setStartX(event.touches[0].clientX)
+  }
+
+  // Function to handle touch move event and trigger image change
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>): void => {
+    const currentX = event.touches[0].clientX
+    const deltaX = currentX - startX
+
+    // Set a threshold for swipe distance to prevent accidental swipes
+    if (Math.abs(deltaX) > 50) {
+      // Move to the next image if swiped left
+      if (deltaX < 0) {
+        handleRightClick()
+      } else { // Move to the previous image if swiped right
+        handleLeftClick()
+      }
+    }
+  }
+
   return (
     <div className={'home-content'}>
-      <div className="img-carussel">
+      <div className="img-carussel" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
         {/* Conditionally render the TransitionImage based on the current theme and the index i */}
         {theme === 'light'
           ? (
-          <TransitionImage key={imagesWhite[i]} src={imagesWhite[i]} alt="Vape White" />
+          <TransitionImage key={imagesWhite[i]} src={device === 'desktop' ? imagesWhite[i] : imagesWhiteSmall[i]} alt="Vape White" />
             )
           : (
-          <TransitionImage key={imagesBlack[i]} src={imagesBlack[i]} alt="Vape Black" />
+          <TransitionImage key={imagesBlack[i]} src={device === 'desktop' ? imagesBlack[i] : imagesBlackSmall[i]} alt="Vape Black" />
             )}
         {/* Left arrow button */}
-        <button className="left" onClick={handleLeftClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" strokeWidth="5" />
-          </svg>
-        </button>
-        {/* Right arrow button */}
-        <button className="right" onClick={handleRightClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
-          </svg>
-        </button>
+        {device === 'desktop'
+          ? (
+          <>
+            <button className="left" onClick={handleLeftClick}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" strokeWidth="5" />
+              </svg>
+            </button>
+            <button className="right" onClick={handleRightClick}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
+              </svg>
+            </button>
+          </>)
+          : (<></>)}
         {/* Carussel display to show dots indicating the current image */}
         <div className="carussel-display">
           {imagesBlack.map((item, index) => (
