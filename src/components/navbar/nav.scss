@@ -108,5 +108,59 @@
         }
       }
     }
+
+    .menu-btn {
+      fill: var(--contrary-color);
+      transition: 0.2s ease;
+
+      &:hover {
+        fill: var(--highlight-color);
+        cursor: pointer;
+      }
+    }
+
+    .dropdown {
+      position: fixed;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      padding: 15px;
+
+      svg {
+        fill: var(--contrary-color);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .active {
+        font-weight: 700;
+      }
+
+      a {
+        color: var(--contrary-color);
+        text-decoration: none;
+        font-size: 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        padding: 15px;
+
+        border-bottom-style: solid;
+        border-width: 1px;
+        border-color: var(--contrary-color);
+      }
+
+      background-color: var(--main-color);
+    }
   }
 }

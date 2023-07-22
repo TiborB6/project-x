@@ -5,7 +5,7 @@ import TransitionImage from './img-transition/TransitionImage'
 
 export default function ImgCarussel (): JSX.Element {
   // Get the current theme from the Redux store using useSelector hook
-  const theme = useSelector((state: { theme: { theme: string } }) => state.theme.theme)
+  const theme = useSelector((state: { theme: string }) => state.theme)
 
   // State to keep track of the index of the current image
   const [i, setI] = useState(0)

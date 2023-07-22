@@ -12,6 +12,8 @@ export default function Router (): JSX.Element {
         <Route path="/contakt" element="Wird noch ausgebaut du Hund" />
         <Route path="/b2b" element="Wird noch ausgebaut du Hund" />
         <Route path="/impressum" element="Wird noch ausgebaut du Hund" />
+        <Route path="/profile" element="Wird noch ausgebaut du Hund" />
+        <Route path="/cart" element="Wird noch ausgebaut du Hund" />
       </Routes>
     </BrowserRouter>
   )

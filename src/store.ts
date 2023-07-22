@@ -2,37 +2,74 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 // Define the initial state for the theme
-const initialState = {
-  theme: 'dark'
+interface AppState {
+  theme: string
+  device: 'mobile' | 'desktop' // Use a union type to specify the possible values for device
+}
+
+const initialState: AppState = {
+  theme: 'dark',
+  device: 'desktop'
 }
 
 // Define the action type for toggling the theme
 const TOGGLE_THEME = 'TOGGLE_THEME'
-
-// Define the action interface for the ToggleThemeAction
-interface ToggleThemeAction {
+interface ToggleThemeAction { // Define the action interface for the ToggleThemeAction
   type: typeof TOGGLE_THEME
 }
 
-// Define the action creator function for toggling the theme
-export const toggleTheme = (): ToggleThemeAction => {
+export const toggleTheme = (): ToggleThemeAction => { // Define the action creator function for toggling the theme
   return { type: TOGGLE_THEME }
 }
 
-// Define the themeReducer to handle the theme state changes
-const themeReducer = (state = initialState, action: ToggleThemeAction): typeof initialState => {
+const themeReducer = (state = initialState.theme, action: ToggleThemeAction): string => {
   switch (action.type) {
-    // When TOGGLE_THEME action is dispatched, toggle the theme between 'light' and 'dark'
     case TOGGLE_THEME:
-      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' }
+      return state === 'light' ? 'dark' : 'light'
     default:
       return state
   }
 }
 
+// Mobile State
+const TOGGLE_MOBILE = 'TOGGLE_MOBILE'
+interface ToggleMobileAction {
+  type: typeof TOGGLE_MOBILE
+}
+
+export const toggleMobile = (): ToggleMobileAction => {
+  return { type: TOGGLE_MOBILE }
+}
+
+const mobileReducer = (state = initialState.device, action: ToggleMobileAction): 'mobile' | 'desktop' => {
+  switch (action.type) {
+    case TOGGLE_MOBILE: {
+      return state === 'mobile' ? 'desktop' : 'mobile'
+    }
+    default:
+      return state
+  }
+}
+
+// On window size change
+window.addEventListener('resize', () => {
+  const state: AppState = store.getState()
+
+  if (window.innerWidth <= 720) {
+    if (state.device !== 'mobile') {
+      store.dispatch(toggleMobile())
+    }
+  } else {
+    if (state.device !== 'desktop') {
+      store.dispatch(toggleMobile())
+    }
+  }
+})
+
 // Combine all reducers using combineReducers
 const rootReducer = combineReducers({
-  theme: themeReducer
+  theme: themeReducer,
+  device: mobileReducer
 })
 
 // Configure the Redux store with the rootReducer
@@ -46,3 +83,11 @@ export type AppDispatch = typeof store.dispatch
 
 // Export the store
 export default store
+
+const initialSetup = (): void => {
+  const isMobile = window.innerWidth <= 600
+  if (isMobile) {
+    store.dispatch(toggleMobile()) // Dispatch the toggleMobile action to set the initial device state
+  }
+}
+initialSetup()
