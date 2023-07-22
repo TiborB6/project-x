@@ -8,7 +8,7 @@ interface PreviewDisplayProps {
 }
 
 export default function PreviewDisplay ({ id }: PreviewDisplayProps): JSX.Element {
-  const theme = useSelector((state: { theme: { theme: string } }) => state.theme.theme)
+  const theme = useSelector((state: { theme: string }) => state.theme)
 
   return (
     <div className="product" id={id}>

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import './footer.scss'
 
 export default function Footer (): JSX.Element {
-  const theme = useSelector((state: { theme: { theme: string } }) => state.theme.theme)
+  const theme = useSelector((state: { theme: string }) => state.theme)
   const navigate = useNavigate()
 
   return (
