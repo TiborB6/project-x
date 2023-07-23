@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import LanguageSwitchButton from '../switch-buttons/language/LanguageSwitchButton'
+import ThemeSwitchButton from '../switch-buttons/theme/ThemeSwitchButton'
 
 export default function MobileDropdown (): JSX.Element {
   const [open, setOpen] = useState(false)
@@ -18,13 +20,20 @@ export default function MobileDropdown (): JSX.Element {
     open
       ? (
           <div className="dropdown">
-            <svg onClick={(event) => { handleClose(event) }} xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
-            <NavLink to="/home">Home</NavLink>
-            <NavLink to="/store">Store</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/b2b">B2B</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
-            <NavLink to="/profile">Profile</NavLink>
+            <div className="list">
+              <svg onClick={(event) => { handleClose(event) }} xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
+              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/store">Store</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/b2b">B2B</NavLink>
+              <NavLink to="/cart">Cart</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
+            </div>
+
+            <div className="switches">
+              <LanguageSwitchButton />
+              <ThemeSwitchButton />
+            </div>
           </div>
         )
       : (
