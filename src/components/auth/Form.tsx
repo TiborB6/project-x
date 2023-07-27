@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import NameInput from './forms/NameInput'
-import EmailInput from './forms/EmailInput'
-import PhoneInput from './forms/PhoneInput'
+import NameInput from './forms-components/NameInput'
+import EmailInput from './forms-components/EmailInput'
+import PhoneInput from './forms-components/PhoneInput'
 import './form.scss'
 import Nav from '../navbar/Nav'
-import PasswordInput from './forms/PasswordInput'
+import PasswordInput from './forms-components/PasswordInput'
 
 export default function Form (): JSX.Element {
   const names: any = []
