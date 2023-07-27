@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './form-element.scss'
 interface Psw {
   type: 'password' | 'confirm password'
@@ -21,23 +21,17 @@ export default function PasswordInput ({ type, matchError, changeFunction }: Psw
     } else if (event.target.value.length > 100) {
       setValidation('invalid')
       setError(' - max. length 100 character')
-    } else if (matchError) {
-      setValidation('invalid')
-      setError(' - passwords do not match')
     } else {
       setValidation('valid')
       setError('')
-      const value = event.target.value
-      changeFunction(value)
+      changeFunction(event.target.value)
+    }
+
+    if (matchError) {
+      setValidation('invalid')
+      setError('- passwords do not match')
     }
   }
-
-  useEffect(() => {
-    if (!matchError) {
-      setValidation('valid')
-      setError('')
-    }
-  }, [matchError])
 
   const handleClick = (): void => {
     if (view === 'password') {

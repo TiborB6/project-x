@@ -48,8 +48,9 @@ export default function Form (): JSX.Element {
       setPassword(firstPassword)
     } else {
       setMatchError(true)
+      setPassword('')
     }
-  }, [secondPassword])
+  }, [secondPassword, firstPassword])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
