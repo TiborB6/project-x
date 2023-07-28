@@ -1,0 +1,21 @@
+.profile {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .profile-sign-in {  
+    width: 30vw;
+
+    border-style: solid;
+    border-color: var(--acccent-color);
+    border-width: 1px;
+    border-radius: 4px;
+
+    padding: 30px;
+    
+    box-shadow: 0 25px 50px -12px var(--strong-shadow-color);
+  }
+}

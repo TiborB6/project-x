@@ -1,4 +1,11 @@
 .switches {
+  border-top-style: solid;
+  border-color: var(--accent-color);
+  border-width: 1px;
+
+  padding-top: 15px;
+  padding-bottom: 5px;
+
   display: flex;
   gap: 15px;
 
