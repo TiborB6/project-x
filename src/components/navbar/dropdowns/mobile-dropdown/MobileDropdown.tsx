@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import LanguageSwitchButton from '../switch-buttons/language/LanguageSwitchButton'
-import ThemeSwitchButton from '../switch-buttons/theme/ThemeSwitchButton'
+import LanguageSwitchButton from '../../switch-buttons/language/LanguageSwitchButton'
+import ThemeSwitchButton from '../../switch-buttons/theme/ThemeSwitchButton'
 
 export default function MobileDropdown (): JSX.Element {
   const [open, setOpen] = useState(false)

@@ -3,28 +3,77 @@
   flex-direction: column;
   gap: 20px;
 
-  button {
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--accent-color);
-    border-radius: 4px;
+  .small-login-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 
-    width: 120px;
-    height: 40px;
+    .quick-login {
+      flex: none;
+      width: 40px;
+      height: 40px;
 
-    background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    color: var(--accent-color);
+      border-color: var(--accent-color);
 
-    transition: all 0.2s ease;
+      transition: all 0.3s ease-in-out;
 
-    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
-    
-    &:hover {
+      svg {
+        width: 30px; 
+        height: 30px;
+        vertical-align: middle;
+        fill: var(--accent-color);
+        overflow: hidden;
+
+        transition: all 0.3s ease-in-out;
+
+      }
+
+      &:hover {
+        svg {
+          fill: var(--highlight-color);
+        }
+      }
+
+      .google {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    button {
+      flex: 1;
+
+      border-style: solid;
+      border-width: 1px;
       border-color: var(--contrary-color);
+      border-radius: 4px;
+
+      width: 100%px;
+      height: 40px;
+
+      background: none;
+
       color: var(--contrary-color);
 
-      cursor: pointer;
+      transition: all 0.2s ease;
+
+      box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+      
+      svg {
+        height: 30px;
+        width: auto;
+      }
+
+      &:hover {
+        border-color: var(--highlight-color);
+        color: var(--highlight-color);
+
+        cursor: pointer;
+      }
     }
   }
 }

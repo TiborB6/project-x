@@ -4,13 +4,15 @@
   input {
 
     font-size: 16px;
-    height: 35px;
+    height: 37px;
     width: 100%;
     border-style: none;
     background: none;
     color: var(--contrary-color);
     vertical-align: top;
     outline: none;
+
+    height: 30px;
   }
 
   div {
@@ -72,7 +74,7 @@
 
   input.empty:focus ~ label,
   input.valid ~ label {
-    transform: translateY(-26px);
+    transform: translateY(-22px);
     font-size: 14px;
     color: var(--highlight-color);
   }
@@ -84,12 +86,12 @@
   }
 
   input.invalid ~ label{
-    transform: translateY(-26px);
+    transform: translateY(-22px);
     font-size: 14px;
     color: var(--error-color);
   }
 
-  svg {
+  .input-svg {
     fill: var(--accent-color);
     position: absolute;
 

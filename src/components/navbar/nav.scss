@@ -97,7 +97,7 @@
 
       align-items: center;
 
-      svg {
+      .nav-svg {
         height: 75%;
         width: auto;
         fill: var(--contrary-color);
@@ -107,33 +107,6 @@
         &:hover {
           cursor: pointer;
           fill: var(--highlight-color);
-        }
-      }
-
-      .hover {
-        position: absolute;
-        right: 0px;
-        top: 50px;
-
-        width: 300px;
-
-        .profile-dropdown {
-          margin-top: 30px;
-          margin-right: 4px;
-  
-          padding: 15px;
-
-          border-color: var(--contrary-color);
-          border-style: solid;
-          border-width: 1px;
-          border-radius: 4px;
-
-          background-color: var(--main-color);
-
-          svg {
-            height: 25px;
-            width: 25px;
-          }
         }
       }
     }
