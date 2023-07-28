@@ -35,7 +35,7 @@ export default function PhoneInput ({ changeFunction }: Phone): JSX.Element {
 
   return (
     <div className="form-wrapper">
-      <input type="tel" name="tel" id="tel" onChange={handlePhoneChange} className={validation}/>
+      <input type="tel" name="tel" id="tel" onChange={handlePhoneChange} className={validation} autoComplete="off"/>
       <div></div>
       <label htmlFor="tel">Phone
         <span className='error'>{error}</span>

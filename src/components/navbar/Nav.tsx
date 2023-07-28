@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import './nav.scss'
 import { useSelector } from 'react-redux'
 import MobileDropdown from './dropdowns/MobileDropdown'
-import ProfileDropdown from './dropdowns/ProfileDropdown'
+import ProfileDropdown from './dropdowns/profile-dropdown/ProfileDropdown'
 import './switch-buttons/switch-buttons.scss'
 
 export default function Nav (): JSX.Element {

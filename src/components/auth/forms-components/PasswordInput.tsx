@@ -43,7 +43,7 @@ export default function PasswordInput ({ type, matchError, changeFunction }: Psw
 
   return (
     <div className="form-wrapper">
-      <input type={view} name="password" id="password" onChange={handlePswChange} className={validation}/>
+      <input type={view} name="password" id="password" onChange={handlePswChange} className={validation} autoComplete="off"/>
       <div></div>
       <label htmlFor="password">
         {type === 'password' ? 'Password *' : 'Confirm Password * '}

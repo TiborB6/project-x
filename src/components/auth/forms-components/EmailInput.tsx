@@ -33,7 +33,7 @@ export default function EmailInput ({ changeFunction }: Email): JSX.Element {
 
   return (
     <div className="form-wrapper">
-      <input type="text" name="email" id="email" onChange={handleEmailChange} className={validation}/>
+      <input type="text" name="email" id="email" onChange={handleEmailChange} className={validation} autoComplete="off"/>
       <div></div>
       <label htmlFor="first-name">Email *
         <span className='error'>{error}</span>

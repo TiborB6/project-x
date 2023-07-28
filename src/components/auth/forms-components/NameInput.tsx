@@ -28,7 +28,7 @@ export default function NameInput ({ type, changeFunction }: Name): JSX.Element 
 
   return (
     <div className="form-wrapper">
-      <input type="text" name={type} id={type} onChange={handleChange} className={validation}/>
+      <input type="text" name={type} id={type} onChange={handleChange} className={validation} autoComplete="off"/>
       <div></div>
       <label htmlFor="first-name">
         {type === 'first-name' ? 'First Name' : 'Second Name'}
