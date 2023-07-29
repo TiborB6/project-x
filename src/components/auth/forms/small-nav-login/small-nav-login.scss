@@ -33,6 +33,7 @@
       }
 
       &:hover {
+        border-color: var(--contrary-color)!important;
         svg {
           fill: var(--highlight-color);
         }

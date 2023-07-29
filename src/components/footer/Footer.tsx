@@ -22,6 +22,7 @@ export default function Footer (): JSX.Element {
       <div className="mid">
         <Link to="/impressum">Impressum</Link>
         <Link to="/agb">AGB</Link>
+        <Link to="#">Privacy</Link>
       </div>
 
       <div className="right">

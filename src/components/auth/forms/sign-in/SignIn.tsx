@@ -34,7 +34,7 @@ export default function SignIn (): JSX.Element {
         <button type="submit">Login</button>
         <p>
           Dont have an account:
-          <Link to='#'> Sign-Up</Link>
+          <Link to='/sign-up'> Sign-Up</Link>
         </p>
         <div className="social-login">
           <button className='quick-login'>

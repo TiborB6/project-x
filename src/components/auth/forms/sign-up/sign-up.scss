@@ -1,10 +1,33 @@
-.sign-in {
-  display: flex;
+.sign-up {
+  min-height: 100vh;
+
+  margin-top: 100px;
+  padding: 40px;
+
+  display: grid;
   flex-direction: column;
-  gap: 20px;
+  align-items: start;
+  justify-content: center;
+
+  width: 30vw;
+
+  .form-wrapper {
+    width: 100%;
+  }
+
+  .names,
+  .passwords {
+    display: flex;
+    gap: 15px;
+
+    .form-wrapper {
+      flex: 1;
+    }
+  }
+
 
   h1 {
-    text-align: right;
+    text-align: left;
     color: var(--highlight-color);
     font-size: 30px;
     margin: 0px;

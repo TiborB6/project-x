@@ -12,7 +12,7 @@ export default function ProfileDropdown (): JSX.Element {
       <SmallNavLogin />
       <p>
         Dont have an account:
-        <Link to='#'> Sign-Up</Link>
+        <Link to='/sign-up'> Sign-Up</Link>
       </p>
       <div className="switches">
         <ThemeSwitchButton />
