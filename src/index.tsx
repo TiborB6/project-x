@@ -18,9 +18,9 @@ import './styles/index.scss'
 import './styles/normalize.css'
 
 // Import Firebase configuration
-import config from './config'
+import API_KEY from './config'
 const firebaseConfig = {
-  apiKey: config.apiKey,
+  apiKey: API_KEY,
   authDomain: 'projectx-87e81.firebaseapp.com',
   projectId: 'projectx-87e81',
   storageBucket: 'projectx-87e81.appspot.com',
