@@ -1,13 +1,16 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
-export default function RedirectToAnotherPage() {
-  const router = useRouter();
+export default function RedirectToAnotherPage (): JSX.Element {
+  const router = useRouter()
 
   // Redirect programmatically on the client side
   useEffect(() => {
-    router.push('/home');
-  }, []);
+    void router.push('/home')
+  }, [])
 
-  return null; // This component won't be rendered due to the redirect.
+  return (
+    <>
+    </>
+  )
 }

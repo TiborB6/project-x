@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './form-element.scss'
 interface Phone {
   changeFunction: (value: string) => void
 }

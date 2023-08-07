@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './form-element.scss'
 interface Name {
   type: 'first-name' | 'second-name'
   changeFunction: (value: string) => void

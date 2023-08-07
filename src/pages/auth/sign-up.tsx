@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import EmailInput from '@/components/auth/form-components/EmailInput'
 import PasswordInput from '@/components/auth/form-components/PasswordInput'
-import './sign-up.scss'
 import Link from 'next/link'
 import Nav from '@/components/navbar/Nav'
 import Footer from '@/components/footer/Footer'

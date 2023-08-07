@@ -3,11 +3,6 @@ declare module '*.png' {
   export default value
 }
 
-declare module '*.png' {
-  const value: string
-  export default value
-}
-
 declare module '*.jpg' {
   const value: string
   export default value
@@ -25,11 +20,9 @@ declare module '*.svg' {
 
 declare namespace NodeJS {
   interface Require {
-    context: {
-      (path: string, recursive: boolean, regExp: RegExp): {
-        keys: () => string[];
-        <T>(id: string): T;
-      };
-    };
+    context: (path: string, recursive: boolean, regExp: RegExp) => {
+      keys: () => string[]
+        <T>(id: string): T
+    }
   }
 }
