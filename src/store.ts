@@ -51,21 +51,6 @@ const mobileReducer = (state = initialState.device, action: ToggleMobileAction):
   }
 }
 
-// On window size change
-window.addEventListener('resize', () => {
-  const state: AppState = store.getState()
-
-  if (window.innerWidth <= 720) {
-    if (state.device !== 'mobile') {
-      store.dispatch(toggleMobile())
-    }
-  } else {
-    if (state.device !== 'desktop') {
-      store.dispatch(toggleMobile())
-    }
-  }
-})
-
 // Combine all reducers using combineReducers
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -83,11 +68,3 @@ export type AppDispatch = typeof store.dispatch
 
 // Export the store
 export default store
-
-const initialSetup = (): void => {
-  const isMobile = window.innerWidth <= 600
-  if (isMobile) {
-    store.dispatch(toggleMobile()) // Dispatch the toggleMobile action to set the initial device state
-  }
-}
-initialSetup()

@@ -1,5 +1,4 @@
 import React from 'react'
-import './home.scss'
 import Nav from '@/components/navbar/Nav'
 // import ImgCarussel from './attention-interest/ImgCarussel'
 // import SectionOne from './desire/SectionOne'

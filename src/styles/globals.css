@@ -1,4 +1,4 @@
-#root.light {
+#__next.light {
   --main-color: white;
   --contrary-color: black;
   --highlight-color: #3b82f6;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-#root.dark {
+#__next.dark {
   --main-color: black;
   --contrary-color: white;
   --highlight-color: #3b82f6;
