@@ -1,0 +1,149 @@
+form {
+  width: 30vw;
+  height: 300px;
+
+  margin: 150px 100px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  button {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accent-color);
+    border-radius: 4px;
+
+    width: 120px;
+    height: 40px;
+
+    background: none;
+
+    color: var(--accent-color);
+
+    transition: all 0.2s ease;
+
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+    
+    &:hover {
+      border-color: var(--contrary-color);
+      color: var(--contrary-color);
+
+      cursor: pointer;
+    }
+  }
+}
+
+.form-wrapper {
+  position: relative;
+
+  height: 34px;
+
+  input {
+
+    font-size: 16px;
+    height: 37px;
+    width: 100%;
+    border-style: none;
+    background: none;
+    color: var(--contrary-color);
+    vertical-align: top;
+    outline: none;
+
+    height: 30px;
+  }
+
+  div {
+    content: "";
+
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--contrary-color);
+  }
+
+  div::before {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--highlight-color);
+    transform-origin: center;
+    transform: scaleX(0); 
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  input.empty:focus ~ div::before,
+  input.valid ~ div::before {
+    transform: scale(1);
+  }
+
+
+  input.invalid ~ div::before {
+    transform: scale(1);
+    background-color: var(--error-color);
+  }
+
+  input.empty ~ div::before {
+    transform: scale(0);
+  }
+
+  label {
+    pointer-events: none;
+    color: var(--contrary-color);
+
+    position: absolute;
+    left: 6px;
+    bottom: 8px;
+
+    font-size: 16px;
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  input.empty:focus ~ label,
+  input.valid ~ label {
+    transform: translateY(-22px);
+    font-size: 14px;
+    color: var(--highlight-color);
+  }
+
+  input.empty ~ label {
+    font-size: 16px;
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  input.invalid ~ label{
+    transform: translateY(-22px);
+    font-size: 14px;
+    color: var(--error-color);
+  }
+
+  .input-svg {
+    fill: var(--accent-color);
+    position: absolute;
+
+    right: 6px;
+    bottom: 6px;
+
+    height: 25px;
+    width: 25px;
+
+    transition: fill 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      fill: var(--contrary-color);
+    }
+  }
+}
