@@ -18,6 +18,28 @@ export default function App ({ Component, pageProps }: AppProps): JSX.Element {
     }
 
     initialSetup() // Call it initially
+
+    const handleWindowResize = (): void => {
+      const state = store.getState()
+
+      if (window.innerWidth <= 720) {
+        if (state.device !== 'mobile') {
+          store.dispatch(toggleMobile())
+        }
+      } else {
+        if (state.device !== 'desktop') {
+          store.dispatch(toggleMobile())
+        }
+      }
+    }
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleWindowResize)
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleWindowResize)
+    }
   }, [])
 
   return (

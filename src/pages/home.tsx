@@ -1,6 +1,9 @@
 import React from 'react'
 import Nav from '@/components/navbar/Nav'
-// import ImgCarussel from './attention-interest/ImgCarussel'
+import SectionOne from '@/components/home/desire/SectionOne'
+import ImgCarussel from '@/components/home/attention-interest/ImgCarussel'
+import StorePreview from '@/components/home/action/StorePreview'
+
 // import SectionOne from './desire/SectionOne'
 // import StorePreview from './action/StorePreview'
 // import Footer from '../footer/Footer'
@@ -9,10 +12,9 @@ export default function Home (): JSX.Element {
   return (
     <>
       <Nav />
-{/*       <ImgCarussel />
+      <ImgCarussel />
       <SectionOne />
       <StorePreview />
-      <Footer /> */}
     </>
   )
 }
