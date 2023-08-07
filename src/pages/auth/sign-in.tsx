@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import EmailInput from '../../components/auth/form-components/EmailInput'
 import PasswordInput from '../../components/auth/form-components/PasswordInput'
-import './sign-in.scss'
 import Link from 'next/link'
 
 export default function SignIn (): JSX.Element {

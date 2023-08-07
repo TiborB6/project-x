@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import EmailInput from '@/components/auth/form-components/EmailInput'
 import PasswordInput from '@/components/auth/form-components/PasswordInput'
-import './small-nav-login.scss'
 
 export default function SmallNavLogin (): JSX.Element {
   const output: string[] = []

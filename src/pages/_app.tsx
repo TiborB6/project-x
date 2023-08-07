@@ -5,6 +5,7 @@ import '@/styles/navbar.scss'
 import '@/styles/home.scss'
 import '@/styles/footer.scss'
 import '@/styles/profile.scss'
+import '@/styles/form.scss'
 
 import { Provider } from 'react-redux'
 import store, { toggleMobile } from '@/store'
