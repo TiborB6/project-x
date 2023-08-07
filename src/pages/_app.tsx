@@ -4,6 +4,7 @@ import '@/styles/globals.css'
 import '@/styles/navbar.scss'
 import '@/styles/home.scss'
 import '@/styles/footer.scss'
+import '@/styles/profile.scss'
 
 import { Provider } from 'react-redux'
 import store, { toggleMobile } from '@/store'
