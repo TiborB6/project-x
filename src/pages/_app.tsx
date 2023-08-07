@@ -3,6 +3,7 @@ import React, { useEffect } from 'react' // Add this import
 import '@/styles/globals.css'
 import '@/styles/navbar.scss'
 import '@/styles/home.scss'
+import '@/styles/footer.scss'
 
 import { Provider } from 'react-redux'
 import store, { toggleMobile } from '@/store'
