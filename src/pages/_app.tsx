@@ -8,7 +8,7 @@ import '@/styles/profile.scss'
 import '@/styles/form.scss'
 
 import { Provider } from 'react-redux'
-import store, { toggleMobile } from '@/store'
+import store, { toggleMobile } from '../redux/store'
 import type { AppProps } from 'next/app'
 
 export default function App ({ Component, pageProps }: AppProps): JSX.Element {
