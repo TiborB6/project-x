@@ -8,13 +8,14 @@ import '@/styles/profile.scss'
 import '@/styles/form.scss'
 
 import { Provider } from 'react-redux'
-import store, { toggleMobile } from '../redux/store'
+import { toggleMobile } from '../redux/deviceSlice'
+import store from '../redux/store'
 import type { AppProps } from 'next/app'
 
 export default function App ({ Component, pageProps }: AppProps): JSX.Element {
   useEffect(() => {
     const initialSetup = (): void => {
-      const isMobile = window.innerWidth <= 600
+      const isMobile = window.innerWidth <= 720
       if (isMobile) {
         store.dispatch(toggleMobile()) // Dispatch the toggleMobile action to set the initial device state
       }

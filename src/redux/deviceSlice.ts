@@ -1,19 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface DeviceState {
-  device: 'mobile' | 'desktop'
-}
-
-const initialState: DeviceState = {
-  device: 'desktop'
-}
-
 const deviceSlice = createSlice({
   name: 'device',
-  initialState,
+  initialState: 'desktop', // Initial state is a string, not an object
   reducers: {
     toggleMobile: (state) => {
-      state.device = state.device === 'mobile' ? 'desktop' : 'mobile'
+      return state === 'desktop' ? 'mobile' : 'desktop'
     }
   }
 })
