@@ -1,9 +1,9 @@
 import React from 'react'
 import ThemeSwitchButton from '../../switch-buttons/ThemeSwitchButton'
 import LanguageSwitchButton from '../../switch-buttons/LanguageSwitchButton'
-import SmallNavLogin from '@/components/auth/small-nav-login/SmallNavLogin'
 import './profile-dropdown.module.scss'
 import Link from 'next/link'
+import SmallNavLogin from '../../../auth/small-nav-login/SmallNavLogin'
 
 export default function ProfileDropdown (): JSX.Element {
   return (

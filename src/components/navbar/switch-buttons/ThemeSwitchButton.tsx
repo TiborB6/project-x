@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleTheme } from '@/store'
+import { toggleTheme } from '../../../redux/store'
 
 export default function ThemeSwitchButton (): JSX.Element {
   const theme = useSelector((state: { theme: string }) => state.theme)

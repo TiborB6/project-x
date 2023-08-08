@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-async function connectDB (): Promise<void> {
+export default async function connectDB (): Promise<void> {
   try {
     await mongoose.connect(process.env.MDB_URI as string)
     console.log('Connected to MongoDB')
@@ -8,7 +8,3 @@ async function connectDB (): Promise<void> {
     console.error(err)
   }
 }
-
-const db = connectDB()
-
-export default db
