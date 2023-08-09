@@ -2,22 +2,23 @@ import React, { useState } from 'react'
 import EmailInput from '../../components/auth/form-components/EmailInput'
 import PasswordInput from '../../components/auth/form-components/PasswordInput'
 import Link from 'next/link'
-import store from '@/redux/store'
-import { toggleAuthState } from '@/redux/authSlice'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import store from '@/redux/store'
+import { toggleAuthState } from '@/redux/authSlice'
+import Nav from '@/components/navbar/Nav'
 
 interface Input {
-  email: string
-  psw: string
+  emailInput: string
+  pswInput: string
 }
 
 export default function SignIn (): JSX.Element {
   const router = useRouter()
 
   const [input, setInput] = useState<Input>({
-    email: '',
-    psw: ''
+    emailInput: '',
+    pswInput: ''
   })
 
   const [errorMessage, setErrorMessage] = useState('')
@@ -25,42 +26,42 @@ export default function SignIn (): JSX.Element {
   const handleEmailChange = (value: string): void => {
     setInput((prevInput) => ({
       ...prevInput,
-      email: value
+      emailInput: value
     }))
   }
 
   const handlePswChange = (value: string): void => {
     setInput((prevInput) => ({
       ...prevInput,
-      psw: value
+      pswInput: value
     }))
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
 
-    // Handle the asynchronous logic here
-    axios
-      .post('/api/auth/signin', {
-        email: input.email,
-        psw: input.psw
+    try {
+      const response = await axios.post('/api/auth/getUserByEmail', {
+        emailInput: input.emailInput,
+        pswInput: input.pswInput
       })
-      .then((response) => {
-        if (response.status === 200) {
-          // Authentication successful, redirect to profile page
-          store.dispatch(toggleAuthState)
-          void router.push('/profile')
-        } else {
-          // Authentication failed, display error message
-          setErrorMessage(response.data.error)
-        }
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }
 
+      setErrorMessage(response.data.error)
+
+      const user = response.data.user
+
+      if (user !== null || user !== undefined) {
+        store.dispatch(toggleAuthState)
+        console.log(user)
+        void router.push('/profile')
+      }
+    } catch (error) {
+      console.error('Error fetching user:', error)
+    }
+  }
   return (
+    <>
+    <Nav />
     <div className="sign-in-wrapper">
       <form className='sign-in' onSubmit={handleSubmit}>
         <h1>Sign-In</h1>
@@ -88,5 +89,6 @@ export default function SignIn (): JSX.Element {
         </div>
       </form>
     </div>
+    </>
   )
 }

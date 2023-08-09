@@ -6,7 +6,6 @@ export default function SectionOne (): JSX.Element {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (entry.isIntersecting) {
           setIsIntersecting(true)
           observer.unobserve(entry.target)

@@ -11,7 +11,6 @@ import { Provider } from 'react-redux'
 import { toggleMobile } from '../redux/deviceSlice'
 import store from '../redux/store'
 import type { AppProps } from 'next/app'
-import connectDB from '@/mongoDB/db'
 
 export default function App ({ Component, pageProps }: AppProps): JSX.Element {
   useEffect(() => {
@@ -20,14 +19,6 @@ export default function App ({ Component, pageProps }: AppProps): JSX.Element {
       if (isMobile) {
         store.dispatch(toggleMobile()) // Dispatch the toggleMobile action to set the initial device state
       }
-
-      connectDB()
-        .then(() => {
-          console.log('successful connection to mongoDB')
-        })
-        .catch((err) => {
-          console.log('not connected to mongoDB', err)
-        })
     }
 
     initialSetup() // Call it initially

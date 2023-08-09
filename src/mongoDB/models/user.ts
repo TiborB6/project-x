@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-const User = mongoose.model('users', userSchema)
+export const User = mongoose.model('User', userSchema)
 
 async function getUserByEmail (email: string): Promise<UserInterface | null> {
   try {
@@ -60,5 +60,3 @@ export {
   getUserByEmail,
   addNewUser
 }
-
-export default User
