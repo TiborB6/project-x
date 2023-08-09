@@ -2,26 +2,62 @@ import React, { useState } from 'react'
 import EmailInput from '../../components/auth/form-components/EmailInput'
 import PasswordInput from '../../components/auth/form-components/PasswordInput'
 import Link from 'next/link'
+import store from '@/redux/store'
+import { toggleAuthState } from '@/redux/authSlice'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+
+interface Input {
+  email: string
+  psw: string
+}
 
 export default function SignIn (): JSX.Element {
-  const output: string[] = []
+  const router = useRouter()
 
-  const [email, setEmail] = useState('')
-  const [psw, setPsw] = useState('')
+  const [input, setInput] = useState<Input>({
+    email: '',
+    psw: ''
+  })
+
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleEmailChange = (value: string): void => {
-    setEmail(value)
+    setInput((prevInput) => ({
+      ...prevInput,
+      email: value
+    }))
   }
 
   const handlePswChange = (value: string): void => {
-    setPsw(value)
+    setInput((prevInput) => ({
+      ...prevInput,
+      psw: value
+    }))
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    output.push(email)
-    output.push(psw)
-    console.log(output)
+
+    // Handle the asynchronous logic here
+    axios
+      .post('/api/auth/signin', {
+        email: input.email,
+        psw: input.psw
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          // Authentication successful, redirect to profile page
+          store.dispatch(toggleAuthState)
+          void router.push('/profile')
+        } else {
+          // Authentication failed, display error message
+          setErrorMessage(response.data.error)
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
   return (
@@ -32,6 +68,7 @@ export default function SignIn (): JSX.Element {
         <PasswordInput type='password' changeFunction={handlePswChange} matchError={false} />
         <div className="login-buttons">
           <button type="submit">Login</button>
+          <p>{errorMessage}</p>
           <p>
             Dont have an account:
             <Link href='/auth/sign-up'> Sign-Up</Link>
