@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import store from '@/redux/store'
-import { toggleAuthState } from '@/redux/authSlice'
+import { setCurrentUser } from '@/redux/authSlice'
 import Nav from '@/components/navbar/Nav'
 
 interface Input {
@@ -50,9 +50,9 @@ export default function SignIn (): JSX.Element {
 
       const user = response.data.user
 
-      if (user !== null || user !== undefined) {
-        store.dispatch(toggleAuthState)
-        console.log(user)
+      store.dispatch(setCurrentUser(user._id))
+
+      if (user !== undefined) {
         void router.push('/profile')
       }
     } catch (error) {
@@ -69,7 +69,7 @@ export default function SignIn (): JSX.Element {
         <PasswordInput type='password' changeFunction={handlePswChange} matchError={false} />
         <div className="login-buttons">
           <button type="submit">Login</button>
-          <p>{errorMessage}</p>
+          <p className="serverError">{errorMessage}</p>
           <p>
             Dont have an account:
             <Link href='/auth/sign-up'> Sign-Up</Link>

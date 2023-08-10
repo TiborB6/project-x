@@ -1,7 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from 'next'
 import connectDB from '@/mongoDB/db'
 import { User } from '@/mongoDB/models/user'
-
 // Initialize the database connection
 connectDB().catch((err) => { console.error(err) })
 
@@ -12,13 +11,12 @@ export default async function handler (
   await connectDB().catch((err) => { console.error(err) })
 
   if (req.method === 'POST') {
-    const { emailInput, pswInput } = req.body
     try {
-      console.log(emailInput)
-      const user = await User.findOne({ email: `${emailInput}` }).lean().exec()
-      console.log(user)
+      const { emailInput, pswInput } = req.body
+      const query = { email: emailInput }
+      const user = await User.findOne(query).lean().exec()
 
-      if (user === null || user === undefined) {
+      if (user === null) {
         res.status(200).json({ error: 'User email not found' })
       } else if (user.password !== pswInput) {
         res.status(200).json({ error: 'Wrong password entered' })

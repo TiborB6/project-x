@@ -48,15 +48,18 @@ async function getUserByEmail (email: string): Promise<UserInterface | null> {
   }
 }
 
-async function addNewUser (data: UserInterface): Promise<void> {
+async function createUser (newUserObj: UserInterface): Promise<void> {
+  const newUser = new User(newUserObj)
+
   try {
-    // implement logic
+    const savedUser = await newUser.save()
+    console.log('User saved:', savedUser)
   } catch (error) {
-    console.error('Error fetching user:', error)
+    console.error('Error saving user:', error)
   }
 }
 
 export {
   getUserByEmail,
-  addNewUser
+  createUser
 }

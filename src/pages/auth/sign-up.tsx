@@ -6,18 +6,42 @@ import Nav from '@/components/navbar/Nav'
 import Footer from '@/components/footer/Footer'
 import NameInput from '@/components/auth/form-components/NameInput'
 import PhoneInput from '@/components/auth/form-components/PhoneInput'
+import { type UserInterface } from '@/mongoDB/models/user'
+import axios from 'axios'
+import { setCurrentUser } from '@/redux/authSlice'
+import { useRouter } from 'next/router'
+import store from '@/redux/store'
 
 export default function SignUp (): JSX.Element {
-  const names: any = []
+  const router = useRouter()
 
-  const [firstName, setFirstName] = useState('')
-  const [secondName, setSecondName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [firstPassword, setFirstPassword] = useState('')
-  const [secondPassword, setSecondPassword] = useState('')
-  const [password, setPassword] = useState('')
-  const [matchError, setMatchError] = useState(false)
+  const [newUserObj, setNewUserObj] = useState<UserInterface>({
+    name: '',
+    email: '',
+    tel: '',
+    password: '',
+    createDate: new Date(),
+    billingAdress: {
+      plz: 0,
+      city: '',
+      street: ''
+    },
+    shippingAdress: {
+      plz: 0,
+      city: '',
+      street: ''
+    }
+  })
+
+  const [firstName, setFirstName] = useState<string>('')
+  const [secondName, setSecondName] = useState<string>('')
+
+  const [firstPassword, setFirstPassword] = useState<string>('')
+  const [secondPassword, setSecondPassword] = useState<string>('')
+  const [passwordInput, setPassword] = useState<string>('')
+
+  const [matchError, setMatchError] = useState<boolean>(false)
+  const [serverErrorMessage, setServerErrorMessage] = useState<string>('')
 
   const handleFirstNameChange = (value: string): void => {
     setFirstName(value)
@@ -27,12 +51,25 @@ export default function SignUp (): JSX.Element {
     setSecondName(value)
   }
 
+  useEffect(() => {
+    setNewUserObj((prevNewUserObj) => ({
+      ...prevNewUserObj,
+      name: firstName + ' ' + secondName
+    }))
+  }, [firstName, secondName])
+
   const handleEmailChange = (value: string): void => {
-    setEmail(value)
+    setNewUserObj((prevNewUserObj) => ({
+      ...prevNewUserObj,
+      email: value
+    }))
   }
 
   const handlePhoneChange = (value: string): void => {
-    setPhone(value)
+    setNewUserObj((prevNewUserObj) => ({
+      ...prevNewUserObj,
+      tel: value
+    }))
   }
 
   const handle1PswChange = (value: string): void => {
@@ -53,14 +90,29 @@ export default function SignUp (): JSX.Element {
     }
   }, [secondPassword, firstPassword])
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  useEffect(() => {
+    setNewUserObj((prevNewUserObj) => ({
+      ...prevNewUserObj,
+      password: passwordInput
+    }))
+  }, [passwordInput])
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
-    names.push(firstName)
-    names.push(secondName)
-    names.push(email)
-    names.push(phone)
-    names.push(password)
-    console.log(names)
+
+    try {
+      const response = await axios.post('/api/auth/addNewUser', newUserObj)
+
+      setServerErrorMessage(response.data.error)
+
+      const user = response.data
+
+      store.dispatch(setCurrentUser(user._id))
+
+      void router.push('/profile')
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   return (
@@ -84,6 +136,7 @@ export default function SignUp (): JSX.Element {
 
         <div className="login-buttons">
           <button type="submit">Register</button>
+          <p className='serverError'>{serverErrorMessage}</p>
           <p>
             Already have an account:
             <Link href='#'> Sign-In</Link>
