@@ -59,11 +59,12 @@ export default function SignIn (): JSX.Element {
       console.error('Error fetching user:', error)
     }
   }
+
   return (
     <>
     <Nav />
     <div className="sign-in-wrapper">
-      <form className='sign-in' onSubmit={handleSubmit}>
+      <form className='sign-in' onSubmit={(event) => { void handleSubmit(event) }}>
         <h1>Sign-In</h1>
         <EmailInput changeFunction={handleEmailChange} />
         <PasswordInput type='password' changeFunction={handlePswChange} matchError={false} />
