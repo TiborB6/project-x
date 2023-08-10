@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import LogoWhite from '../../img/Logo-White.png'
-import LogoBlack from '../../img/Logo-Black.png'
+import LogoWhite from '../../img/logos/FibX Logo Horizontal Weiß.svg'
+import LogoBlack from '../../img/logos/FibX Logo Horizontal Schwarz.svg'
 import { useSelector } from 'react-redux'
 import MobileDropdown from './dropdowns/mobile-dropdown/MobileDropdown'
 import ProfileDropdown from './dropdowns/profile-dropdown/ProfileDropdown'
