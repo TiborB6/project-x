@@ -1,7 +1,7 @@
 #__next.light {
   --main-color: white;
   --contrary-color: black;
-  --highlight-color: #c026d3;
+  --highlight-color: #3b82f6;
   --shadow-color: rgb(0 0 0 / 0.1);
   --strong-shadow-color: rgb(0 0 0 / 0.25);
   --accent-color: #666;
@@ -13,7 +13,7 @@
 #__next.dark {
   --main-color: black;
   --contrary-color: white;
-  --highlight-color: #c026d3;
+  --highlight-color: #3b82f6;
   --shadow-color: rgb(250 250 250 / 0.1);
   --strong-shadow-color: rgb(250 250 250/ 0.25);
   --accent-color: #999;
