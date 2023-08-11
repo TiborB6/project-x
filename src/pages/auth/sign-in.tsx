@@ -2,36 +2,75 @@ import React, { useState } from 'react'
 import EmailInput from '../../components/auth/form-components/EmailInput'
 import PasswordInput from '../../components/auth/form-components/PasswordInput'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+import store from '@/redux/store'
+import { setCurrentUser } from '@/redux/authSlice'
+import Nav from '@/components/navbar/Nav'
+
+interface Input {
+  emailInput: string
+  pswInput: string
+}
 
 export default function SignIn (): JSX.Element {
-  const output: string[] = []
+  const router = useRouter()
 
-  const [email, setEmail] = useState('')
-  const [psw, setPsw] = useState('')
+  const [input, setInput] = useState<Input>({
+    emailInput: '',
+    pswInput: ''
+  })
+
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleEmailChange = (value: string): void => {
-    setEmail(value)
+    setInput((prevInput) => ({
+      ...prevInput,
+      emailInput: value
+    }))
   }
 
   const handlePswChange = (value: string): void => {
-    setPsw(value)
+    setInput((prevInput) => ({
+      ...prevInput,
+      pswInput: value
+    }))
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
-    output.push(email)
-    output.push(psw)
-    console.log(output)
+
+    try {
+      const response = await axios.post('/api/auth/getUserByEmail', {
+        emailInput: input.emailInput,
+        pswInput: input.pswInput
+      })
+
+      setErrorMessage(response.data.error)
+
+      const user = response.data.user
+
+      store.dispatch(setCurrentUser(user._id))
+
+      if (user !== undefined) {
+        void router.push('/profile')
+      }
+    } catch (error) {
+      console.error('Error fetching user:', error)
+    }
   }
 
   return (
+    <>
+    <Nav />
     <div className="sign-in-wrapper">
-      <form className='sign-in' onSubmit={handleSubmit}>
+      <form className='sign-in' onSubmit={(event) => { void handleSubmit(event) }}>
         <h1>Sign-In</h1>
         <EmailInput changeFunction={handleEmailChange} />
         <PasswordInput type='password' changeFunction={handlePswChange} matchError={false} />
         <div className="login-buttons">
           <button type="submit">Login</button>
+          <p className="serverError">{errorMessage}</p>
           <p>
             Dont have an account:
             <Link href='/auth/sign-up'> Sign-Up</Link>
@@ -51,5 +90,6 @@ export default function SignIn (): JSX.Element {
         </div>
       </form>
     </div>
+    </>
   )
 }
