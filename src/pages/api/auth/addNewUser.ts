@@ -10,17 +10,24 @@ export default async function handler (
 
   if (req.method === 'POST') {
     try {
-      const { emailInput, pswInput } = req.body
-      const query = { email: emailInput }
-      const user = await User.findOne(query).lean().exec()
+      const newUser = req.body
 
-      if (user === null) {
-        res.status(200).json({ error: 'User email not found' })
-      } else if (user.password !== pswInput) {
-        res.status(200).json({ error: 'Wrong password entered' })
-      } else {
-        res.status(200).json({ user, error: '' })
+      console.log(newUser)
+
+      const query = { email: newUser.email }
+
+      const existingUser = await User.findOne(query)
+
+      console.log(existingUser)
+
+      if (existingUser) {
+        res.status(400).json({ error: 'User with the email already exists' }); return
       }
+
+      const savedUser = await User.create(newUser)
+
+      res.status(200).json(savedUser)
+      console.log('User saved:', savedUser)
     } catch (error) {
       console.error('Error fetching user:', error)
       res.status(500).json({ error: 'Internal server error' })

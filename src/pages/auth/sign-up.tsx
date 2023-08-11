@@ -103,15 +103,21 @@ export default function SignUp (): JSX.Element {
     try {
       const response = await axios.post('/api/auth/addNewUser', newUserObj)
 
-      setServerErrorMessage(response.data.error)
+      console.log(response)
 
       const user = response.data
+
+      console.log(user)
 
       store.dispatch(setCurrentUser(user._id))
 
       void router.push('/profile')
     } catch (err) {
       console.error(err)
+
+      if (err.response && err.response.status === 400) {
+        setServerErrorMessage('User with the email already exists')
+      }
     }
   }
 
