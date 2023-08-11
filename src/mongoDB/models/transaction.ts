@@ -5,8 +5,16 @@ const transactionSchema = new mongoose.Schema({
   email: { type: String, require: true },
   tel: { type: String },
   date: { type: Date },
-  billingAdress: { type: Object },
-  shippingAdress: { type: Object }
+  billingAdress: {
+    plz: { type: Number },
+    city: { type: String },
+    street: { type: String }
+  },
+  shippingAdress: {
+    plz: { type: Number },
+    city: { type: String },
+    street: { type: String }
+  }
 })
 
 const Transaction = mongoose.model('users', transactionSchema)
