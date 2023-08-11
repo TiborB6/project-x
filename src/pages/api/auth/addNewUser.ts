@@ -20,7 +20,7 @@ export default async function handler (
 
       console.log(existingUser)
 
-      if (existingUser) {
+      if (existingUser !== null || existingUser !== undefined) {
         res.status(400).json({ error: 'User with the email already exists' }); return
       }
 
