@@ -27,9 +27,6 @@ export default function Nav (): JSX.Element {
 
   useEffect(() => {
     const rootElement = document.querySelector('#__next')
-
-    console.log(rootElement)
-
     rootElement?.classList.remove('light', 'dark')
     rootElement?.classList.add(theme)
   }, [theme])
