@@ -115,7 +115,7 @@ export default function SignUp (): JSX.Element {
     } catch (err) {
       console.error(err)
 
-      if (err.response && err.response.status === 400) {
+      if (axios.isAxiosError(err) && (err.response != null) && err.response.status === 400) {
         setServerErrorMessage('User with the email already exists')
       }
     }
