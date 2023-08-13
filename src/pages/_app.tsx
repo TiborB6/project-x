@@ -6,6 +6,7 @@ import '@/styles/home.scss'
 import '@/styles/footer.scss'
 import '@/styles/profile.scss'
 import '@/styles/form.scss'
+import '@/styles/legal.scss'
 
 import { Provider } from 'react-redux'
 import { toggleMobile } from '../redux/deviceSlice'

@@ -21,9 +21,9 @@ export default function Footer (): JSX.Element {
       </div>
 
       <div className="mid">
-        <Link href="/impressum">Impressum</Link>
-        <Link href="/agb">AGB</Link>
-        <Link href="#">Privacy</Link>
+        <Link href="/legal/impressum">Impressum</Link>
+        <Link href="/legal/agb">AGB</Link>
+        <Link href="/legal/privacy">Privacy</Link>
       </div>
 
       <div className="right">
