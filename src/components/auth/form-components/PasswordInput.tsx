@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 interface Psw {
   type: 'password' | 'confirm password'
   matchError: boolean
@@ -12,24 +12,28 @@ export default function PasswordInput ({ type, matchError, changeFunction }: Psw
   const [error, setError] = useState('')
   const [validation, setValidation] = useState<ValidationState>('empty')
   const [view, setView] = useState<View>('password')
+  const [value, setValue] = useState<string>('')
 
-  const handlePswChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (event.target.value.length < 1) {
+  useEffect(() => {
+    if (value.length < 1) {
       setValidation('empty')
       setError('')
-    } else if (event.target.value.length > 100) {
+    } else if (value.length > 100) {
       setValidation('invalid')
       setError(' - max. length 100 character')
+    } else if (matchError) {
+      setValidation('invalid')
+      setError('- passwords do not match')
     } else {
       setValidation('valid')
       setError('')
-      changeFunction(event.target.value)
     }
 
-    if (matchError) {
-      setValidation('invalid')
-      setError('- passwords do not match')
-    }
+    changeFunction(value)
+  }, [value, matchError])
+
+  const handlePswChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setValue(event.target.value)
   }
 
   const handleClick = (): void => {

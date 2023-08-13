@@ -138,7 +138,7 @@ export default function SignUp (): JSX.Element {
 
           <div className="passwords">
             <PasswordInput type='password' changeFunction={handle1PswChange} matchError={false} />
-            <PasswordInput type='password' changeFunction={handle2PswChange} matchError={matchError} />
+            <PasswordInput type='confirm password' changeFunction={handle2PswChange} matchError={matchError} />
           </div>
 
           <div className="login-buttons">
