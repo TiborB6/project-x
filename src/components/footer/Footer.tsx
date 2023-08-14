@@ -14,7 +14,6 @@ export default function Footer (): JSX.Element {
     <div className="footer">
       <div className="left">
         <Link href="/store">Store</Link>
-        <Link href="/contact">Contact</Link>
         <Link href="/b2b">B2B</Link>
         <Link href="/profile">Profile</Link>
 

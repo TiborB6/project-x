@@ -57,10 +57,6 @@ export default function Nav (): JSX.Element {
                       <div className="underline-nav"></div>
                     </div>
                     <div className="nav-wrapper">
-                      <Link href='/contact'>Kontakt</Link>
-                      <div className="underline-nav"></div>
-                    </div>
-                    <div className="nav-wrapper">
                       <Link href='/b2b'>B2B</Link>
                       <div className="underline-nav"></div>
                     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-// import LanguageSwitchButton from '../../switch-buttons/language/LanguageSwitchButton'
-// import ThemeSwitchButton from '../../switch-buttons/theme/ThemeSwitchButton'
+import LanguageSwitchButton from '../../switch-buttons/LanguageSwitchButton'
+import ThemeSwitchButton from '../../switch-buttons/ThemeSwitchButton'
 
 export default function MobileDropdown (): JSX.Element {
   const [open, setOpen] = useState(false)
@@ -24,15 +24,14 @@ export default function MobileDropdown (): JSX.Element {
               <svg onClick={(event) => { handleClose(event) }} xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
               <Link href="/home">Home</Link>
               <Link href="/store">Store</Link>
-              <Link href="/contact">Contact</Link>
               <Link href="/b2b">B2B</Link>
               <Link href="/cart">Cart</Link>
               <Link href="/profile">Profile</Link>
             </div>
 
             <div className="switches">
-{/*           <LanguageSwitchButton />
-          <ThemeSwitchButton /> */}
+            <LanguageSwitchButton />
+            <ThemeSwitchButton />
             </div>
           </div>
         )
