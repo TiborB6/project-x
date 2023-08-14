@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react' // Add this import
 
 import '@/styles/globals.css'
+import '@/styles/normalize.css'
 import '@/styles/navbar.scss'
 import '@/styles/home.scss'
 import '@/styles/footer.scss'
 import '@/styles/profile.scss'
 import '@/styles/form.scss'
 import '@/styles/legal.scss'
+import '@/styles/contact.scss'
+import '@/styles/b2b.scss'
 
 import { Provider } from 'react-redux'
 import { toggleMobile } from '../redux/deviceSlice'

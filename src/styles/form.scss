@@ -9,7 +9,7 @@
 .form-wrapper {
   position: relative;
 
-  height: 34px;
+  min-height: 34px;
 
   input {
 
@@ -117,6 +117,77 @@
       cursor: pointer;
       fill: var(--contrary-color);
     }
+  }
+
+  textarea {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+  
+    width: 100%;
+    height: 100px;
+  
+    background: none;
+  
+    color: var(--contrary-color);
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+
+    transition: all 0.2s ease;
+  
+    outline: none;
+
+    transition: all 0.3s ease-in-out;
+    
+    svg {
+      height: 30px;
+      width: auto;
+    }
+  
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      border-color: var(--highlight-color)!important;
+    }
+    
+    /* Apply border color based on validation state */
+    &.empty {
+      border-color: var(--contrary-color);
+    }
+
+    &.valid {
+      border-color: var(--highlight-color);
+    }
+
+
+    &.invalid {
+      border-color: var(--error-color)!important;
+    }
+
+    &.empty:focus ~ label,
+    &.valid ~ label {
+      transform: translateY(-26px);
+      font-size: 14px;
+      color: var(--highlight-color);
+    }
+  
+    &.invalid ~ label{
+      transform: translateY(-26px);
+      font-size: 14px;
+      color: var(--error-color);
+    }
+  }
+
+  textarea ~ label {
+    top: 6px;
+  }
+  
+  /* Reset styling for empty div elements */
+  div:empty {
+    border: none;
+    box-shadow: none;
   }
 }
 

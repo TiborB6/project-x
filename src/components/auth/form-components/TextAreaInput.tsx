@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
-interface Name {
-  type: 'first-name' | 'second-name' | 'name'
+
+interface TextAreaProps {
+  label: string
   changeFunction: (value: string) => void
 }
 
 type ValidationState = 'valid' | 'invalid' | 'empty'
 
-export default function NameInput ({ type, changeFunction }: Name): JSX.Element {
+export default function TextAreaInput ({ label, changeFunction }: TextAreaProps): JSX.Element {
   const [error, setError] = useState('')
   const [validation, setValidation] = useState<ValidationState>('empty')
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     if (event.target.value.length < 1) {
       setValidation('empty')
       setError('')
-    } else if (event.target.value.length > 100) {
+    } else if (event.target.value.length > 300) {
       setValidation('invalid')
-      setError(' - max. length 100 character')
+      setError(' - max. length 300 characters')
     } else {
       setValidation('valid')
       setError('')
@@ -27,10 +28,15 @@ export default function NameInput ({ type, changeFunction }: Name): JSX.Element 
 
   return (
     <div className="form-wrapper">
-      <input type="text" name={type} id={type} onChange={handleChange} className={validation} autoComplete="off"/>
-      <div></div>
-      <label htmlFor="first-name">
-        {type === 'first-name' ? 'First Name' : type === 'second-name' ? 'Second Name' : 'Name'}
+      <textarea
+        name={label}
+        id={label}
+        onChange={handleChange}
+        className={validation}
+        autoComplete="off"
+      ></textarea>
+      <label htmlFor={label}>
+        {label}
         <span className='error'>{error}</span>
       </label>
     </div>
