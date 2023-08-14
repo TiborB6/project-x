@@ -1,5 +1,14 @@
 import mongoose from 'mongoose'
 
+export interface ProductInterface {
+  name: string
+  productID: number
+  priceEUR: number
+  priceUSD: number
+  imgPath: string
+  description: string
+}
+
 const productSchema = new mongoose.Schema({
   name: { type: String, require: true },
   priceEUR: { type: Number, require: true },
