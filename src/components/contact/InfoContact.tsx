@@ -55,6 +55,7 @@ export default function InfoContact ({ companyData }: { companyData?: CompanyDat
   const [name, setName] = useState<string>('')
   const handleNameChange = (value: string): void => {
     setName(value)
+    setError(value)
   }
 
   const [email, setEmail] = useState<string>('')
@@ -77,6 +78,8 @@ export default function InfoContact ({ companyData }: { companyData?: CompanyDat
         messageInput: message,
         targetEmail: companyData?.infoEmail
       })
+
+      console.log(response)
     } catch (err) {
       console.error(err)
     }
