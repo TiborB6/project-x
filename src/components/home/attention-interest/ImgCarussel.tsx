@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { imagesBlack, imagesWhite, imagesBlackSmall, imagesWhiteSmall } from '../../../img/IMG_IMPORT_Module'
+import { imagesBlack, imagesBlackSmall } from '../../../img/IMG_IMPORT_Module'
 import { useSelector } from 'react-redux'
 import TransitionImage from './TransitionImgage'
 
 export default function ImgCarussel (): JSX.Element {
-  // Get the current theme from the Redux store using useSelector hook
-  const theme = useSelector((state: { theme: string }) => state.theme)
   const device = useSelector((state: { device: string }) => state.device)
 
   // State to keep track of the index of the current image
   const [i, setI] = useState(0)
-
-  // Ensure that the number of images in imagesBlack matches imagesWhite
-  if (imagesBlack.length !== imagesWhite.length) {
-    console.error('images Black not matching images white in home')
-  }
 
   // Get the total number of images
   const length = imagesBlack.length
@@ -83,15 +76,7 @@ export default function ImgCarussel (): JSX.Element {
   return (
     <div className={'home-content'}>
       <div className="img-carussel" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-        {/* Conditionally render the TransitionImage based on the current theme and the index i */}
-        {theme === 'light'
-          ? (
-          <TransitionImage key={imagesWhite[i]} src={device === 'desktop' ? imagesWhite[i] : imagesWhiteSmall[i]} alt="Vape White" />
-            )
-          : (
-          <TransitionImage key={imagesBlack[i]} src={device === 'desktop' ? imagesBlack[i] : imagesBlackSmall[i]} alt="Vape Black" />
-            )}
-        {/* Left arrow button */}
+        <TransitionImage key={imagesBlack[i]} src={device === 'desktop' ? imagesBlack[i] : imagesBlackSmall[i]} alt="Vape Black" />
         {device === 'desktop'
           ? (
           <>

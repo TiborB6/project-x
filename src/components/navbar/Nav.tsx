@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import LogoWhite from '../../img/logos/Logo-White.png'
-import LogoBlack from '../../img/logos/Logo-Black.png'
+import React, { useState } from 'react'
+import LogoWhite from '../../img/logos/FibXLogo.png'
 import { useSelector } from 'react-redux'
 import MobileDropdown from './dropdowns/mobile-dropdown/MobileDropdown'
 import ProfileDropdown from './dropdowns/profile-dropdown/ProfileDropdown'
@@ -9,8 +8,6 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 export default function Nav (): JSX.Element {
-  // Get the current theme from the Redux store using useSelector hook
-  const theme = useSelector((state: { theme: string }) => state.theme)
   const device = useSelector((state: { device: string }) => state.device)
 
   const router = useRouter()
@@ -25,22 +22,10 @@ export default function Nav (): JSX.Element {
     setProfileHover(false)
   }
 
-  useEffect(() => {
-    const rootElement = document.querySelector('#__next')
-    rootElement?.classList.remove('light', 'dark')
-    rootElement?.classList.add(theme)
-  }, [theme])
-
   return (
     <div className='navbar'>
       <div className="left">
-        {theme === 'light'
-          ? (
-          <Image src={LogoWhite} alt="Logo White" />
-            )
-          : (
-          <Image src={LogoBlack} alt="Logo Black" />
-            )}
+        <Image src={LogoWhite} alt="Logo White" />
       </div>
       <div className="right">
         {device === 'desktop'

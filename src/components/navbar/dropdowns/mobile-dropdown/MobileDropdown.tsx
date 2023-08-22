@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import LanguageSwitchButton from '../../switch-buttons/LanguageSwitchButton'
-import ThemeSwitchButton from '../../switch-buttons/ThemeSwitchButton'
 
 export default function MobileDropdown (): JSX.Element {
   const [open, setOpen] = useState(false)
@@ -31,7 +30,6 @@ export default function MobileDropdown (): JSX.Element {
 
             <div className="switches">
             <LanguageSwitchButton />
-            <ThemeSwitchButton />
             </div>
           </div>
         )

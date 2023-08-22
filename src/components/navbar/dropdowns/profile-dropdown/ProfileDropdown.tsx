@@ -1,5 +1,4 @@
 import React from 'react'
-import ThemeSwitchButton from '../../switch-buttons/ThemeSwitchButton'
 import LanguageSwitchButton from '../../switch-buttons/LanguageSwitchButton'
 import './profile-dropdown.module.scss'
 import Link from 'next/link'
@@ -15,7 +14,6 @@ export default function ProfileDropdown (): JSX.Element {
         <Link href='/auth/sign-up'> Sign-Up</Link>
       </p>
       <div className="switches">
-        <ThemeSwitchButton />
         <LanguageSwitchButton />
       </div>
     </div>
