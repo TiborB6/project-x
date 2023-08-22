@@ -23,8 +23,7 @@
 
     .image-transition {
       opacity: 0;
-      transform: translateX(-100%);
-      transition: opacity 0.2s ease-in-out, transform 0.8s ease-in-out;
+      transition: opacity 0.2s ease-in-out
     }
     
     .image-transition.show {
@@ -109,14 +108,17 @@
   color: var(--contrary-color);
   color: var(--contrary-color);
 
+  height: 400px;
+
   display: flex;
   justify-content: center;
-  gap: calc(400px * 0.382);
+  gap: calc(500px * 0.382);
   flex-wrap: wrap;
+  align-items: center;  
 
   margin: 100px 0px 100px 0px;
-  padding-right: calc(400px * 0.382);
-  padding-left: calc(400px * 0.382);
+  padding-right: calc(500px * 0.382);
+  padding-left: calc(500px * 0.382);
 
   overflow: hidden;
 
@@ -159,7 +161,7 @@
     gap: 40px;
 
     h1 {
-      color: var(--highlight-color);
+      color: var(--contrary-color);
       margin: 0px;
       font-size: 26px;
     }
@@ -172,7 +174,7 @@
     }
 
     svg {
-      fill: var(--contrary-color);
+      fill: var(--highlight-color);
 
       height: 100px;
       width: 100px;
@@ -195,7 +197,7 @@
 
     border-bottom-style: solid;
     border-width: 1px;
-    border-color: var(--contrary-color);
+    border-color: var(--highlight-color);
 
     display: flex;
     justify-content: space-between;
@@ -316,15 +318,20 @@
 
       display: flex;
       flex-direction: column;
-      
-      transition: all 0.3s ease-in-out;
+
+      p {
+        color: var(--accent-color);
+      }
+
+      .name {
+        color: var(--contrary-color);
+      }
 
       &:hover{
-        transform: scale(1.01);
         cursor: pointer;
 
         border-style: solid;
-        border-width: 1px;
+        border-width: 3px;
         border-color: var(--contrary-color);
         border-radius: 5px;
       }

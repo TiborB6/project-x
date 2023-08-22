@@ -11,9 +11,7 @@
   overflow: hidden;
 }
 
-
 body {
-  width: 100vw;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 18px;
   color: var(--contrary-color);
