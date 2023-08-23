@@ -11,6 +11,7 @@ import '@/styles/legal.scss'
 import '@/styles/contact.scss'
 import '@/styles/b2b.scss'
 import '@/styles/store.scss'
+import '@/styles/cart.scss'
 
 import { Provider } from 'react-redux'
 import { toggleMobile } from '../redux/deviceSlice'

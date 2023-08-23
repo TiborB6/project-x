@@ -2,7 +2,41 @@
   height: 90vh;
   width: 100vw;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 120px;
+
+  h1 {
+    color: var(--accent-color);
+    font-size: 60px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .b2b-wrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    .product-image {
+      display: flex;
+      justify-content: center; /* Horizontally center the content */
+      align-items: center; /* Vertically center the content */
+      
+      img {
+        max-height: 500px;
+        width: auto;
+      }
+    }
+
+    .product-description {
+      padding: 30px;
+
+      h2 {
+        margin-left: 25px;
+        color: var(--contrary-color);
+      }
+    }
+    // sales contact under contact
+  }
 }

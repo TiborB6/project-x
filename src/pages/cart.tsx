@@ -15,7 +15,7 @@ export default function Cart (): JSX.Element {
 
   const [selectedOption, setSelectedOption] = useState('')
 
-  const handleOptionChange = (event) => {
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSelectedOption(event.target.value)
   }
 
