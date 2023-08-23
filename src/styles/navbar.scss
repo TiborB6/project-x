@@ -18,11 +18,10 @@
   border-width: 1px;
   border-color: var(--accent-color);
 
-  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
-
   backdrop-filter: blur(20px);
   background: none;
 
+  z-index: 99;
 
   .left {
     padding-left: 20px;
@@ -130,6 +129,9 @@
       right: 0px;
       top: 0px;
       bottom: 0px;
+
+      width: 100vw;
+      height: 100vh;
 
       display: flex;
       flex-direction: column;

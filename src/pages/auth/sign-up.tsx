@@ -11,6 +11,8 @@ import axios from 'axios'
 import { setCurrentUser } from '@/redux/authSlice'
 import { useRouter } from 'next/router'
 import store from '@/redux/store'
+import Image from 'next/image'
+import SignUpImage from '../../img/Sign-Up.png'
 
 export default function SignUp (): JSX.Element {
   const router = useRouter()
@@ -123,8 +125,9 @@ export default function SignUp (): JSX.Element {
 
   return (
     <>
-      <Nav />
-      <form className='sign-up' onSubmit={(event) => { void handleSubmit(event) }}>
+    <Nav />
+    <div className='sign-up'>
+      <form className='sign-up-form' onSubmit={(event) => { void handleSubmit(event) }}>
         <div className="main-sign-up">
           <h1>Sign-Up</h1>
 
@@ -168,7 +171,10 @@ export default function SignUp (): JSX.Element {
         </div>
       </form>
 
-      <Footer />
+      <Image className="sign-up-img" src={SignUpImage} alt="smoke picture" />
+
+    </div>
+    <Footer />
     </>
   )
 }

@@ -334,146 +334,207 @@
 }
 
 .sign-up {
-  min-height: 100vh;
+  position: relative;
+  width: 100vw;
 
-  margin-top: 100px;
-  padding: 40px;
+  min-height: 90vh;
 
-  display: grid;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-
-  gap: 20px;
-
-  width: 30vw;
-
-  .form-wrapper {
+  .sign-up-img {
     width: 100%;
+    height: auto;
   }
 
-  .names,
-  .passwords {
-    display: flex;
-    gap: 15px;
+  .sign-up-form {
+    position: absolute;
 
-    .form-wrapper {
-      flex: 1;
-    }
-  }
+    width: 40vw;
+    height: 60vh;
 
-  .main-sign-up {
-    display: flex;
-    flex-direction: column;
-    
-    gap: 40px;
-  }
+    top: 200px;
+    left: 125px;
 
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accent-color);
+    border-radius: 4px;
 
-  h1 {
-    text-align: left;
-    color: var(--highlight-color);
-    font-size: 30px;
-    margin: 0px;
-  }
+    box-shadow: 0 25px 50px -12px var(--strong-shadow-color);
 
-  .login-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    overflow: scroll;
+    width: 30vw;
 
-    p {
-      color: var(--accent-color);
+    .main-sign-up {
+      padding: 40px;
 
-      a {
-        color: var(--highlight-color);
-        font-weight: 700;
-        text-decoration: none;
-      }
-    }
+      display: grid;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
 
-    .social-login {
-      width: 100%;
-    
-      display: flex;
-      align-items: center;
-      gap: 15px;
-
-      border-top-style: solid;
-      border-width: 1px;
-      border-color: var(--contrary-color);
-
-      padding-top: 15px;
-
-      .quick-login {
-        flex: 1;
-        height: 40px;
-  
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-  
-        border-color: var(--accent-color);
-  
-        transition: all 0.3s ease-in-out;
-        color: var(--accent-color);
-  
-        svg {
-          width: 30px; 
-          height: 30px;
-          vertical-align: middle;
-          fill: var(--accent-color);
-          overflow: hidden;
-  
-          transition: all 0.3s ease-in-out;
-        }
-  
-        &:hover {
-          border-color: var(--contrary-color);
-          color: var(--contrary-color);
-
-          svg {
-            fill: var(--highlight-color);
-          }
-        }
-  
-        .google {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-
-    button {
-      border-style: solid;
-      border-width: 1px;
-      border-color: var(--contrary-color);
-      border-radius: 4px;
-
-      width: 100%;
-      height: 40px;
+      gap: 20px;
 
       background: none;
 
-      color: var(--contrary-color);
+      .names,
+      .passwords {
+        display: flex;
+        gap: 15px;
 
-      transition: all 0.2s ease;
-
-      box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
-      
-      svg {
-        height: 30px;
-        width: auto;
+        .form-wrapper {
+          flex: 1;
+        }
       }
 
-      &:hover {
-        border-color: var(--highlight-color);
+      .main-sign-up {
+        display: flex;
+        flex-direction: column;
+        
+        gap: 40px;
+      }
+
+
+      h1 {
+        text-align: left;
         color: var(--highlight-color);
-
-        cursor: pointer;
+        font-size: 30px;
+        margin: 0px;
       }
+
+      .login-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        p {
+          color: var(--accent-color);
+
+          a {
+            color: var(--highlight-color);
+            font-weight: 700;
+            text-decoration: none;
+          }
+        }
+
+        .social-login {
+          width: 100%;
+        
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          border-top-style: solid;
+          border-width: 1px;
+          border-color: var(--contrary-color);
+
+          padding-top: 15px;
+
+          .quick-login {
+            flex: 1;
+            height: 40px;
+      
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+      
+            border-color: var(--accent-color);
+      
+            transition: all 0.3s ease-in-out;
+            color: var(--accent-color);
+      
+            svg {
+              width: 30px; 
+              height: 30px;
+              vertical-align: middle;
+              fill: var(--accent-color);
+              overflow: hidden;
+      
+              transition: all 0.3s ease-in-out;
+            }
+      
+            &:hover {
+              border-color: var(--contrary-color);
+              color: var(--contrary-color);
+
+              svg {
+                fill: var(--highlight-color);
+              }
+            }
+      
+            .google {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      } 
+    
+
+      button {
+        border-style: solid;
+        border-width: 1px;
+        border-color: var(--contrary-color);
+        border-radius: 4px;
+
+        width: 100%;
+        height: 40px;
+
+        background: none;
+
+        color: var(--contrary-color);
+
+        transition: all 0.2s ease;
+
+        box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+        
+        svg {
+          height: 30px;
+          width: auto;
+        }
+
+        &:hover {
+          border-color: var(--highlight-color);
+          color: var(--highlight-color);
+
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .sign-up {
+    width: 100vw;
+    height: 100vh;
+
+    .sign-up-img {
+      display: none;
+    }
+
+    
+    .sign-up-form {
+      position: relative;
+
+      top: 100px!important;
+      left: 0px!important;
+
+      border: none;
+
+      height: 80vh;
+      width: 100vw!important;
+
+      box-shadow: none;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .sign-up {
+    .sign-up-form {
+      top: 100px;
+      left: 25px;
+      width: 40vw;
     }
   }
 }
